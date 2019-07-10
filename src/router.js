@@ -23,7 +23,7 @@ export default new Router({
       component: () => import('./views/Champion.vue')
     },
     {
-      path: "/Index",
+      path: "/",
       name: "index",
       component: () => import('./views/Index.vue')
     },

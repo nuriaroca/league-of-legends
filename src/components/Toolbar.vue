@@ -46,6 +46,7 @@
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
+          <v-btn @click="testAction('Hola Nú')">test</v-btn>
         </v-list>
       </v-navigation-drawer>
     </v-layout>
@@ -53,12 +54,13 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
     return {
       drawer: null,
       items: [
-        { title: "Home", icon: "dashboard", to: "/Index" },
+        { title: "Home", icon: "dashboard", to: "/" },
         {
           title: "All Champions",
           icon: "question_answer",
@@ -70,6 +72,12 @@ export default {
       mini: false,
       right: null
     };
+  },
+  methods: {
+    ...mapActions(["testAction"])
+  },
+  computed: {
+    ...mapGetters(["getTest"])
   }
 };
 </script>

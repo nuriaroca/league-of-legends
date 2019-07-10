@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Breadcrumbs></Breadcrumbs>
+    <Breadcrumbs :items="items"></Breadcrumbs>
     <h1>Game modes page</h1>
     <mode v-for="(map, index) in maps" v-bind:key="index" v-bind:mode="map"></mode>
   </div>
@@ -35,6 +35,18 @@ export default {
           desc:
             "Inspired by the popular community game mode All Random All Mid, the Howling Abyss features two teams of five champions battling over a single lane. The summoner platform provides no healing and shopping is strictly limited to periods after your champion has died. This pushes the map toward aggressive, high-intensity gameplay centered on team fights.",
           image: "map12.png"
+        }
+      ],
+      items: [
+        {
+          text: "Home",
+          disabled: false,
+          to: "/"
+        },
+        {
+          text: "Game Modes",
+          disabled: true,
+          to: "/Game-modes"
         }
       ]
     };

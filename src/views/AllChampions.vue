@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Breadcrumbs></Breadcrumbs>
+    <Breadcrumbs :items="items"></Breadcrumbs>
     <h1>All Champions page</h1>
     <!-- champion = value (data), key = nom, index = position -->
     <div class="icons">
@@ -25,7 +25,19 @@ export default {
   },
   data() {
     return {
-      champions: {}
+      champions: {},
+      items: [
+        {
+          text: "Home",
+          disabled: false,
+          to: "/"
+        },
+        {
+          text: "All champions",
+          disabled: true,
+          to: "/AllChampions"
+        }
+      ]
     };
   },
   created() {

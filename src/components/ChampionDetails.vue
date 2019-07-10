@@ -1,5 +1,9 @@
 <template>
   <v-container>
+    <div>
+      {{champion.spells.name}}
+      {{champion.spells.description}}
+    </div>
     <p>{{champion.lore}}</p>
     <Carousel :champion="champion"></Carousel>
   </v-container>
