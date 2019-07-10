@@ -31,7 +31,7 @@ export default {
 
     //portrait
     document.getElementById("app").style.backgroundImage =
-      "url(http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
+      "url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
       this.champion.id +
       "_0.jpg)";
     document.getElementById("app").style.backgroundSize = "contain";

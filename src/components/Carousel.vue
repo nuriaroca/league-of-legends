@@ -3,7 +3,7 @@
     <v-carousel-item
       v-for="(skin,i) in champion.skins"
       :key="i"
-      :src="'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + champion.id + '_' + skin.num + '.jpg'"
+      :src="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + champion.id + '_' + skin.num + '.jpg'"
       reverse-transition="fade"
       transition="fade"
     ></v-carousel-item>

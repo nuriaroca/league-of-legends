@@ -36,7 +36,7 @@ export default {
     getData() {
       console.log("get");
       const url =
-        "http://ddragon.leagueoflegends.com/cdn/9.13.1/data/en_US/champion.json";
+        "https://ddragon.leagueoflegends.com/cdn/9.13.1/data/en_US/champion.json";
       axios.get(url).then(response => {
         console.log(response);
         this.champions = response.data.data;

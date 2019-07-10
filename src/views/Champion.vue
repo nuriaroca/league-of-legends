@@ -29,7 +29,7 @@ export default {
   methods: {
     getData() {
       console.log("get");
-      const url = `http://ddragon.leagueoflegends.com/cdn/9.13.1/data/en_US/champion/${this.championName}.json`;
+      const url = `https://ddragon.leagueoflegends.com/cdn/9.13.1/data/en_US/champion/${this.championName}.json`;
       axios.get(url).then(response => {
         console.log(response);
         this.champion = response.data.data[this.championName];
