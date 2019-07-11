@@ -41,7 +41,7 @@ export default {
         {
           text: "Home",
           disabled: false,
-          to: "/"
+          to: "/∫"
         },
         {
           text: "Game Modes",

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Filters></Filters>
     <Breadcrumbs :items="items"></Breadcrumbs>
     <h1>All Champions page</h1>
     <!-- champion = value (data), key = nom, index = position -->
@@ -17,11 +18,14 @@
 import ChampionIcon from "../components/ChampionIcon";
 import Breadcrumbs from "../components/Breadcrumbs";
 import axios from "axios";
+import Filters from "../components/Filters";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     ChampionIcon,
-    Breadcrumbs
+    Breadcrumbs,
+    Filters
   },
   data() {
     return {
@@ -47,13 +51,15 @@ export default {
   methods: {
     getData() {
       console.log("get");
-      const url =
-        "https://ddragon.leagueoflegends.com/cdn/9.13.1/data/en_US/champion.json";
+      const url = `https://ddragon.leagueoflegends.com/cdn/${this.getVersion}/data/en_US/champion.json`;
       axios.get(url).then(response => {
         console.log(response);
         this.champions = response.data.data;
       });
     }
+  },
+  computed: {
+    ...mapGetters(["getVersion"])
   }
 };
 </script>

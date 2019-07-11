@@ -2,7 +2,7 @@
   <div class="icon">
     <router-link :to="'/champion/'+champion.id">
       <img
-        v-bind:src="'https://ddragon.leagueoflegends.com/cdn/9.13.1/img/champion/' + champion.id + '.png'"
+        v-bind:src="'https://ddragon.leagueoflegends.com/cdn/' + getVersion + '/img/champion/' + champion.id + '.png'"
         alt="splashart"
       />
     </router-link>
@@ -10,10 +10,15 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   props: ["champion"],
   data() {
     return {};
+  },
+  computed: {
+    ...mapGetters(["getVersion"])
   }
 };
 </script>

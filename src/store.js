@@ -27,10 +27,9 @@ export default new Vuex.Store({
       })
     }
   },
-
   getters: {
     getChampion: state => state.selectedChampion,
-
+    getVersion: state => state.version,
     // getChampion2(state) {
     //   return state.selectedChampion
     // }

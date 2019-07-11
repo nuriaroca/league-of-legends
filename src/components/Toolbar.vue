@@ -1,13 +1,8 @@
 <template>
   <div>
-    <!-- <v-button>
-      <img src="../public/images/menu.png" />
-    </v-button>-->
-    <v-layout wrap style="height: 200px;">
+    <v-layout wrap>
       <v-container>
-        <v-layout justify-center>
-          <v-btn color="pink" dark @click.stop="drawer = !drawer">Toggle</v-btn>
-        </v-layout>
+        <v-btn dark @click.stop="drawer = !drawer">Toggle</v-btn>
       </v-container>
 
       <v-navigation-drawer v-model="drawer" :mini-variant="mini" absolute dark temporary>
@@ -46,7 +41,6 @@
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-btn @click="testAction('Hola Nú')">test</v-btn>
         </v-list>
       </v-navigation-drawer>
     </v-layout>
@@ -83,7 +77,4 @@ export default {
 </script>
 
 <style>
-/* v-btn {
-  position: sticky;
-} */
 </style>

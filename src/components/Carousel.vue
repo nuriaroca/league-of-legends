@@ -1,5 +1,5 @@
 <template>
-  <v-carousel max="100%" height="200" hide-delimiters touch>
+  <v-carousel max="100%" height="200" hide-delimiters>
     <v-carousel-item
       v-for="(skin,i) in champion.skins"
       :key="i"
