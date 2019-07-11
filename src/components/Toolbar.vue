@@ -10,6 +10,7 @@
         <v-list class="pa-1">
           <v-list-tile v-if="mini" @click.stop="mini = !mini">
             <v-list-tile-action>
+              <!-- <img src="../public/lol_icon.png" alt="logo" /> -->
               <v-icon>chevron_right</v-icon>
             </v-list-tile-action>
           </v-list-tile>

@@ -2,7 +2,7 @@
   <div>
     <div class="search-wrapper">
       <input
-        v-on:input="SET_SEARCH(search)"
+        @input="SET_SEARCH(search)"
         class="search-box btn-outline-info"
         type="text"
         v-model="search"
@@ -11,78 +11,27 @@
     </div>
 
     <div>
-      <v-radio-group class="radio" v-model="ex7" column>
-        <v-radio
-          v-on:input="SET_ROLE(role)"
-          type="radio"
-          name="role"
-          v-model="role"
-          value="all"
-          id="all"
-          label="All"
-          color="indigo darken-3"
-        ></v-radio>
+      <v-radio-group class="radio" v-model="role">
+        <v-radio name="role" type="radio" value="all" id="all" label="All" color="indigo darken-3"></v-radio>
+
+        <v-radio name="role" value="fighter" id="figther" label="Fighter" color="indigo darken-3"></v-radio>
+
+        <v-radio name="role" value="tank" id="tank" label="Tank" color="indigo darken-3"></v-radio>
 
         <v-radio
-          v-on:input="SET_ROLE(role)"
-          type="radio"
           name="role"
-          v-model="role"
-          value="fighter"
-          id="figther"
-          label="Fighter"
-          color="indigo darken-3"
-        ></v-radio>
-
-        <v-radio
-          v-on:input="SET_ROLE(role)"
-          type="radio"
-          name="role"
-          v-model="role"
-          value="tank"
-          id="tank"
-          label="Tank"
-          color="indigo darken-3"
-        ></v-radio>
-
-        <v-radio
-          v-on:input="SET_ROLE(role)"
-          type="radio"
-          name="role"
-          v-model="role"
           value="assassin"
           id="assassin"
           label="Assassin"
           color="indigo darken-3"
         ></v-radio>
 
-        <v-radio
-          v-on:input="SET_ROLE(role)"
-          type="radio"
-          name="role"
-          v-model="role"
-          value="mage"
-          id="mage"
-          label="Mage"
-          color="indigo darken-3"
-        ></v-radio>
+        <v-radio name="role" value="mage" id="mage" label="Mage" color="indigo darken-3"></v-radio>
+
+        <v-radio name="role" value="support" id="support" label="Support" color="indigo darken-3"></v-radio>
 
         <v-radio
-          v-on:input="SET_ROLE(role)"
-          type="radio"
           name="role"
-          v-model="role"
-          value="support"
-          id="support"
-          label="Support"
-          color="indigo darken-3"
-        ></v-radio>
-
-        <v-radio
-          v-on:input="SET_ROLE(role)"
-          type="radio"
-          name="role"
-          v-model="role"
           value="marksman"
           id="marksman"
           label="Marksman"
@@ -107,6 +56,11 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_SEARCH", "SET_ROLE"])
+  },
+  watch: {
+    role(val) {
+      this.SET_ROLE(val);
+    }
   }
 };
 </script>

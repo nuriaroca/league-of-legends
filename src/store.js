@@ -16,9 +16,13 @@ export default new Vuex.Store({
       state.version = data
     },
     SET_SEARCH: (state, data) => {
+      console.log(data);
+
       state.search = data
     },
     SET_ROLE: (state, data) => {
+      console.log(data);
+
       state.role = data
     }
   },
