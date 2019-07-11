@@ -6,11 +6,10 @@
       :src="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + champion.id + '_' + skin.num + '.jpg'"
       reverse-transition="fade"
       transition="fade"
-      v-if="i!== 0"
     ></v-carousel-item>
   </v-carousel>
 </template>
-//
+// v-if="i!== 0"
 <script>
 export default {
   props: ["champion"],

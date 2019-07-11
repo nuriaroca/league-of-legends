@@ -1,9 +1,10 @@
 <template>
   <div>
     <v-layout wrap>
-      <v-container>
-        <v-btn dark @click.stop="drawer = !drawer">Toggle</v-btn>
-      </v-container>
+      <!-- <v-btn @click.stop="drawer = !drawer" fab dark color="black">
+        <v-icon dark>list</v-icon>
+      </v-btn>-->
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
 
       <v-navigation-drawer v-model="drawer" :mini-variant="mini" absolute dark temporary>
         <v-list class="pa-1">

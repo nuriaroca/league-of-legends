@@ -7,19 +7,22 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     selectedChampion: null,
-    version: null
+    version: null,
+    search: "",
+    role: ""
   },
   mutations: {
     SET_VERSION: (state, data) => {
       state.version = data
     },
-
-    TESTING: (state, payload) => {
-      state.selectedChampion = payload
+    SET_SEARCH: (state, data) => {
+      state.search = data
+    },
+    SET_ROLE: (state, data) => {
+      state.role = data
     }
   },
   actions: {
-
     getVersion(context) {
       const url = "https://ddragon.leagueoflegends.com/api/versions.json";
       axios.get(url).then(response => {
@@ -30,6 +33,8 @@ export default new Vuex.Store({
   getters: {
     getChampion: state => state.selectedChampion,
     getVersion: state => state.version,
+    getSearch: state => state.search,
+    getRole: state => state.role
     // getChampion2(state) {
     //   return state.selectedChampion
     // }
