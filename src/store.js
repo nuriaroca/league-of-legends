@@ -26,6 +26,7 @@ export default new Vuex.Store({
       state.role = data
     }
   },
+  //context = store
   actions: {
     getVersion(context) {
       const url = "https://ddragon.leagueoflegends.com/api/versions.json";

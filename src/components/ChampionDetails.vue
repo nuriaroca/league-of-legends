@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    
     <div>
       {{champion.spells.name}}
       {{champion.spells.description}}
@@ -50,6 +51,7 @@ export default {
 </script>
 
 <style>
+
 p {
   text-align: justify;
 }

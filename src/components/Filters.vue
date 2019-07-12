@@ -19,27 +19,27 @@
             <v-radio name="role" type="radio" value="all" id="all" label="All"></v-radio>
           </label>
           <label class="avatars">
-            <v-radio name="role" value="fighter" id="figther" label="Fighter"></v-radio>
+            <v-radio name="role" value="Fighter" id="figther" label="Fighter"></v-radio>
             <img class="avatar" src="/images/Fighter_icon.png" />
           </label>
           <label class="avatars">
-            <v-radio name="role" value="tank" id="tank" label="Tank"></v-radio>
+            <v-radio name="role" value="Tank" id="tank" label="Tank"></v-radio>
             <img class="avatar" src="/images/Tank_icon.png" />
           </label>
           <label class="avatars">
-            <v-radio name="role" value="assassin" id="assassin"></v-radio>
+            <v-radio name="role" value="Assassin" id="assassin"></v-radio>
             <img class="avatar" src="/images/Assassin_icon.png" />
           </label>
           <label class="avatars">
-            <v-radio name="role" value="mage" id="mage" label="Mage"></v-radio>
+            <v-radio name="role" value="Mage" id="mage" label="Mage"></v-radio>
             <img class="avatar" src="/images/Mage_icon.png" />
           </label>
           <label class="avatars">
-            <v-radio name="role" value="support" id="support" label="Support"></v-radio>
+            <v-radio name="role" value="Support" id="support" label="Support"></v-radio>
             <img class="avatar" src="/images/Support_icon.png" />
           </label>
           <label class="avatars">
-            <v-radio name="role" value="marksman" id="marksman" label="Marksman"></v-radio>
+            <v-radio name="role" value="Marksman" id="marksman" label="Marksman"></v-radio>
             <img class="avatar" src="/images/Marksman_icon.png" />
           </label>
         </v-layout>
@@ -65,15 +65,7 @@ export default {
       this.SET_ROLE(val);
     }
   },
-  computed: {
-    searchFilter() {
-      return (
-        champions.name.toUpperCase().includes(this.search.toUpperCase()),
-        champions.id.toUpperCase().includes(this.search.toUpperCase())
-      );
-      return getRole(state.$role);
-    }
-  }
+  computed: {}
 };
 </script>
 
