@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Filters></Filters>
     <Breadcrumbs :items="items"></Breadcrumbs>
-    <h1>All Champions page</h1>
+    <Filters></Filters>
+    <h1>Champions</h1>
     <!-- champion = value (data), key = nom, index = position -->
     <div class="icons">
       <ChampionIcon

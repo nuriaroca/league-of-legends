@@ -1,23 +1,19 @@
 <template>
-  <div>
+  <div class="container">
     <v-layout wrap>
-      <!-- <v-btn @click.stop="drawer = !drawer" fab dark color="black">
-        <v-icon dark>list</v-icon>
-      </v-btn>-->
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
 
       <v-navigation-drawer v-model="drawer" :mini-variant="mini" absolute dark temporary>
         <v-list class="pa-1">
           <v-list-tile v-if="mini" @click.stop="mini = !mini">
             <v-list-tile-action>
-              <!-- <img src="../public/lol_icon.png" alt="logo" /> -->
               <v-icon>chevron_right</v-icon>
             </v-list-tile-action>
           </v-list-tile>
 
           <v-list-tile avatar tag="div">
             <v-list-tile-avatar>
-              <!-- <v-img></v-img> -->
+              <img src="/Lol_Icon.png" alt="logo" />
             </v-list-tile-avatar>
 
             <v-list-tile-content>
@@ -69,6 +65,10 @@ export default {
       right: null
     };
   },
+  // created() {
+  //   document.getElementsByClassName("container").style.backgroundImage =
+  //     "url(../public/images/shareImage.jpg)";
+  // },
   methods: {
     ...mapActions(["testAction"])
   },
