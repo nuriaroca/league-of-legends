@@ -59,16 +59,13 @@ export default {
           to: "/AllChampions"
         },
         { title: "Game Modes", icon: "dashboard", to: "/Game-modes" },
-        { title: "Chat", icon: "question_answer" }
+        { title: "Chat", icon: "question_answer" },
+        { title: "Items", icon: "dashboard", to: "/Items" }
       ],
       mini: false,
       right: null
     };
   },
-  // created() {
-  //   document.getElementsByClassName("container").style.backgroundImage =
-  //     "url(../public/images/shareImage.jpg)";
-  // },
   methods: {
     ...mapActions(["testAction"])
   },

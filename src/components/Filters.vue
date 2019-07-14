@@ -17,6 +17,7 @@
         <v-layout justify-space-around>
           <label class="avatars">
             <v-radio name="role" type="radio" value="all" id="all" label="All"></v-radio>
+            <img class="avatar" src="/images/All_icon.png" />
           </label>
           <label class="avatars">
             <v-radio name="role" value="Fighter" id="figther" label="Fighter"></v-radio>
@@ -64,8 +65,7 @@ export default {
     role(val) {
       this.SET_ROLE(val);
     }
-  },
-  computed: {}
+  }
 };
 </script>
 

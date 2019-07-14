@@ -7,6 +7,11 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [{
+      path: "/",
+      name: "home",
+      component: () => import('./views/Home.vue')
+    },
+    {
       path: "/Game-modes",
       name: "game-modes",
       component: () => import('./views/Game-modes.vue')
@@ -23,9 +28,10 @@ export default new Router({
       component: () => import('./views/Champion.vue')
     },
     {
-      path: "/",
-      name: "index",
-      component: () => import('./views/Index.vue')
+      path: "/Items",
+      name: "Items",
+      component: () => import('./views/Items.vue')
     },
+
   ]
 })

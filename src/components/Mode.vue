@@ -1,3 +1,23 @@
+<style>
+.modes {
+  display: flex;
+  align-content: space-between;
+  align-items: center;
+  text-align: justify;
+  max-width: 500px;
+}
+.mapimg {
+  height: 100px;
+  width: 100px;
+  align-self: baseline;
+  margin-right: 1em;
+}
+h2 {
+  text-align: left;
+}
+</style>
+
+
 <template>
   <v-container class="modes">
     <img

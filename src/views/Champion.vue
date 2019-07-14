@@ -2,7 +2,7 @@
   <v-container>
     <Breadcrumbs :items="items"></Breadcrumbs>
     <h1 v-if="champion">{{champion.name}}</h1>
-    <h3>{{champion.title}}</h3>
+    <h3 v-if="champion">{{champion.title}}</h3>
     <ChampionDetails v-bind:champion="champion" v-if="champion"></ChampionDetails>
   </v-container>
 </template>

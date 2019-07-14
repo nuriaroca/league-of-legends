@@ -9,7 +9,8 @@ export default new Vuex.Store({
     selectedChampion: null,
     version: null,
     search: "",
-    role: ""
+    role: "",
+    loader: false
   },
   mutations: {
     SET_VERSION: (state, data) => {
@@ -17,14 +18,16 @@ export default new Vuex.Store({
     },
     SET_SEARCH: (state, data) => {
       console.log(data);
-
       state.search = data
     },
     SET_ROLE: (state, data) => {
       console.log(data);
-
       state.role = data
+    },
+    LOADER: (state, payload) => {
+      state.loader = payload
     }
+
   },
   //context = store
   actions: {

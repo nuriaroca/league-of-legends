@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <v-container>
     <Breadcrumbs :items="items"></Breadcrumbs>
-    <h1>Game modes page</h1>
+    <h1>Game modes</h1>
     <mode v-for="(map, index) in maps" v-bind:key="index" v-bind:mode="map"></mode>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -41,7 +41,7 @@ export default {
         {
           text: "Home",
           disabled: false,
-          to: "/∫"
+          to: "/"
         },
         {
           text: "Game Modes",

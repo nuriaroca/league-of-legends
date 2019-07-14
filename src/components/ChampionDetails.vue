@@ -1,10 +1,5 @@
 <template>
   <v-container>
-    
-    <div>
-      {{champion.spells.name}}
-      {{champion.spells.description}}
-    </div>
     <p>{{champion.lore}}</p>
     <Carousel :champion="champion"></Carousel>
   </v-container>
@@ -17,9 +12,6 @@ export default {
   props: ["champion"],
   components: {
     Carousel
-  },
-  data() {
-    return {};
   },
   created() {
     console.log(this.champion);
@@ -51,7 +43,6 @@ export default {
 </script>
 
 <style>
-
 p {
   text-align: justify;
 }

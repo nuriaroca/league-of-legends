@@ -1,15 +1,17 @@
 <template>
   <div>
-    <Breadcrumbs :items="items"></Breadcrumbs>
-    <Filters></Filters>
-    <h1>Champions</h1>
-    <!-- champion = value (data), key = nom, index = position -->
-    <div class="icons">
-      <ChampionIcon
-        v-for="(champion, key, index) in roleFilter"
-        v-bind:key="index"
-        v-bind:champion="champion"
-      ></ChampionIcon>
+    <div>
+      <Breadcrumbs :items="items"></Breadcrumbs>
+      <Filters></Filters>
+      <h1>Champions</h1>
+      <!-- champion = value (data), key = nom, index = position -->
+      <div class="icons">
+        <ChampionIcon
+          v-for="(champion, key, index) in roleFilter"
+          v-bind:key="index"
+          v-bind:champion="champion"
+        ></ChampionIcon>
+      </div>
     </div>
   </div>
 </template>
@@ -58,17 +60,21 @@ export default {
   computed: {
     ...mapGetters(["getVersion", "getRole", "getSearch"]),
     roleFilter() {
-      return Object.values(this.champions).filter(ch =>
-        ch.tags.includes(this.getRole)
+      return Object.values(this.champions).filter(champion =>
+        champion.tags.includes(this.getRole)
       );
     },
     searchFilter() {
-      return search(this.champions).this.roleFilter.filter(champions => {
-        return (
-          this.champions.id.toUpperCase().includes(this.search.toUpperCase()),
-          this.champions.name.toUpperCase().includes(this.search.toUpperCase())
-        );
+      return Object.search(this.champions).filter(champion => {
+        return champion.name.match(this.getSearch);
       });
+
+      // return search(this.champions).this.roleFilter.filter(champions => {
+      //   return (
+      //     this.champions.id.toUpperCase().includes(this.search.toUpperCase()),
+      //     this.champions.name.toUpperCase().includes(this.search.toUpperCase())
+      //   );
+      // });
     }
   }
 };
