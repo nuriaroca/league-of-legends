@@ -50,13 +50,16 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 export default {
   data() {
     return {
       search: "",
       role: ""
     };
+  },
+  computed: {
+    ...mapGetters(["getSearch"])
   },
   methods: {
     ...mapMutations(["SET_SEARCH", "SET_ROLE"])

@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <div>
       <img
         v-bind:src="'https://ddragon.leagueoflegends.com/cdn/9.8.1/img/item/' + item.image.full"
@@ -57,8 +57,9 @@ export default {
 };
 </script>
 <style scoped>
-
-
+.name {
+  width: 64 px;
+}
 .modal-mask {
   position: fixed;
   z-index: 9998;

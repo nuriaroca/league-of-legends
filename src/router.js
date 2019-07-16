@@ -38,7 +38,6 @@ const router = new Router({
       name: "login",
       component: () => import('./views/Login.vue')
     },
-
     {
       path: "/Chat",
       name: "chat",
@@ -54,8 +53,8 @@ router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser;
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-  if (requiresAuth && !currentUser) next('/login');
-  else if (!requiresAuth && currentUser) next('/chat');
+  if (requiresAuth && !currentUser) next('login');
+  else if (!requiresAuth && currentUser) next('chat');
   else next();
 });
 
