@@ -1,11 +1,11 @@
 <template>
   <div class="sign-up">
     <p>Let's create a new account!</p>
-    <input type="text" placeholder="Email" />
+    <input type="text" v-model="email" placeholder="Email" />
     <br />
-    <input type="text" placeholder="Password" />
+    <input type="text" v-model="password" placeholder="Password" />
     <br />
-    <v-btn>Sign Up</v-btn>
+    <v-btn @click="signup">Sign Up</v-btn>
     <span>
       or go back to
       <router-link to="/login">login</router-link>.
@@ -14,10 +14,15 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
   name: "signUp",
   data() {
-    return {};
+    return {
+      email: "",
+      password: ""
+    };
   },
   methods: {
     signUp: function() {
@@ -26,7 +31,7 @@ export default {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(
           function(user) {
-            alert("Your account has been created!");
+            this.$router.replace("chat");
           },
           function(err) {
             alert("Oops. " + err.message);

@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <Toolbar></Toolbar>
-    <Loader v-if="getLoading"></Loader>
-    <v-content v-show="getLoading == false">
-      <router-view></router-view>
+    <v-content>
+      <Toolbar></Toolbar>
+      <Loader v-if="getLoading"></Loader>
+      <router-view v-show="getLoading == false"></router-view>
     </v-content>
   </v-app>
 </template>

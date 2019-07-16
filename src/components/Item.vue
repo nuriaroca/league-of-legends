@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <img
-      v-bind:src="'https://ddragon.leagueoflegends.com/cdn/' + getVersion + '/img/item/' + item.full + '.png'"
+      v-bind:src="'https://ddragon.leagueoflegends.com/cdn/9.8.1/img/item/' + item.image.full"
       alt="splashart"
     />
     <p>{{item.name}}</p>
@@ -21,7 +21,7 @@
 
                 <div class="modal-body">
                     <slot name="body">
-                        <img v-bind:src="'https://ddragon.leagueoflegends.com/cdn/' + getVersion + '/img/item/' + item.full + '.png'" alt="splashart"/>
+                        <img v-bind:src="'https://ddragon.leagueoflegends.com/cdn/9.8.1/img/item/' + item.image.full" alt="splashart"/>
                         {{item.name}}
                         {{item.description}}
                         Cost:

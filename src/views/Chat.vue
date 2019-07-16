@@ -1,29 +1,26 @@
 <template>
-  <!-- <v-container>
-    <div class="chat">
-      <div id="posts" class="box">Loading posts...</div>
-
-      <div class="inputs">
-        <input id="textInput" class="input" type="text" placeholder="Your message..." />
-
-        <button id="login" class="button is-info">Login!</button>
-        <button id="create-post" class="button is-primary">Send</button>
-      </div>
-    </div>
-  </v-container> -->
-
-
-
-  <v-container>
-
+  <v-container class="chat">
+    <button @click="logout">Logout</button>
   </v-container>
-  
 </template>
 
 <script>
-export default {};
+import firebase from "firebase";
 
-
+export default {
+  name: "chat",
+  components: {},
+  methods: {
+    logout: function() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("login");
+        });
+    }
+  }
+};
 </script>
 
 <style>

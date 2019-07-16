@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import firebase from "firebase"
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [{
@@ -42,5 +43,24 @@ export default new Router({
       name: "signup",
       component: () => import('./views/Signup.vue')
     },
+    {
+      path: "/Chat",
+      name: "chat",
+      component: () => import('./views/Chat.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    }
   ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+  const currentUser = firebase.auth().currentUser;
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  if (requiresAuth && !currentUser) next('login');
+  else if (!requiresAuth && currentUser) next('chat');
+  else next();
+});
+
+export default router;

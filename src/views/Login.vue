@@ -1,11 +1,11 @@
 <template>
   <div class="login">
     <h3>Sing In</h3>
-    <input type="text" />
+    <input type="text" v-model="email" placeholder="Email" />
     <br />
-    <input type="text" />
+    <input type="text" v-model="password" placeholder="Password" />
     <br />
-    <v-btn @clock="login">Connection</v-btn>
+    <v-btn @click="login">Connection</v-btn>
     <p>
       You don't have an account? You can
       <router-link to="/signup">create one</router-link>
@@ -14,21 +14,36 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
   name: "login",
   data() {
-    return {};
+    return {
+      email: "",
+      password: ""
+    };
   },
   methods: {
     login: function() {
-      this.$router.replace("home");
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(
+          function(user) {
+            this.$router.replace("chat");
+          },
+          function(err) {
+            alert("Oops. " + err.message);
+          }
+        );
     }
   }
 };
 </script>
 
 <style scoped>
-.login {
+/* .login {
   margin-top: 40px;
 }
 input {
@@ -48,5 +63,5 @@ p {
 p a {
   text-decoration: underline;
   cursor: pointer;
-}
+} */
 </style>

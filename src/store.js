@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     version: null,
     search: "",
-    role: "",
+    role: "all",
     loading: false,
     champs: {},
     items: {},
@@ -59,7 +59,7 @@ export default new Vuex.Store({
     },
     getAllItems(context) {
       context.commit("LOADER", true)
-      const url = `https://ddragonexplorer.com/cdn/9.8.1/data/en_US/item.json`;
+      const url = `https://ddragon.leagueoflegends.com/cdn/9.8.1/data/en_US/item.json`;
       axios.get(url).then(response => {
         context.commit("SET_ITEMS", response.data.data)
         context.commit("LOADER", false)

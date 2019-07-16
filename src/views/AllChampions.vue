@@ -7,7 +7,7 @@
       <!-- champion = value (data), key = nom, index = position -->
       <div class="icons">
         <ChampionIcon
-          v-for="(champion, key, index) in roleFilter"
+          v-for="(champion, key, index) in bothFilters"
           v-bind:key="index"
           v-bind:champion="champion"
         ></ChampionIcon>
@@ -54,22 +54,17 @@ export default {
   computed: {
     ...mapGetters(["getRole", "getSearch", "getChamps"]),
 
-    roleFilter() {
-      return Object.values(this.getChamps).filter(champion =>
-        champion.tags.includes(this.getRole)
-      );
-    },
-    searchFilter() {
-      return Object.search(this.getChamps).filter(champion => {
-        return champion.name.match(this.getSearch);
-      });
-
-      // return search(this.champions).this.roleFilter.filter(champions => {
-      //   return (
-      //     this.champions.id.toUpperCase().includes(this.search.toUpperCase()),
-      //     this.champions.name.toUpperCase().includes(this.search.toUpperCase())
-      //   );
-      // });
+    bothFilters() {
+      return Object.values(this.getChamps)
+        .filter(
+          champion =>
+            champion.tags.includes(this.getRole) || this.getRole == "all"
+        )
+        .filter(champion => {
+          return champion.name
+            .toLowerCase()
+            .includes(this.getSearch.toLowerCase());
+        });
     }
   }
 };
