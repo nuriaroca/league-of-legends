@@ -1,10 +1,12 @@
 <template>
-  <v-container>
-    <img
-      v-bind:src="'https://ddragon.leagueoflegends.com/cdn/9.8.1/img/item/' + item.image.full"
-      alt="splashart"
-    />
-    <p>{{item.name}}</p>
+  <div >
+    <div>
+      <img
+        v-bind:src="'https://ddragon.leagueoflegends.com/cdn/9.8.1/img/item/' + item.image.full"
+        alt="splashart"
+      />
+      <p class="name">{{item.name}}</p>
+    </div>
 
     <script type="text/x-template" id="modal-template">
   <transition name="modal">
@@ -37,7 +39,7 @@
     </div>
   </transition>
     </script>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -45,9 +47,7 @@ import { mapGetters } from "vuex";
 
 export default {
   props: ["item"],
-  created() {
-    console.log(this.item);
-  },
+  created() {},
   data: {
     showModal: false
   },
@@ -57,6 +57,8 @@ export default {
 };
 </script>
 <style scoped>
+
+
 .modal-mask {
   position: fixed;
   z-index: 9998;

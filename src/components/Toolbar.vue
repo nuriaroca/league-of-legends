@@ -52,7 +52,7 @@ export default {
     return {
       drawer: null,
       items: [
-        { title: "Home", icon: "dashboard", to: "/" },
+        { title: "Home", icon: "home", to: "/" },
         { title: "Game Modes", icon: "dashboard", to: "/Game-modes" },
         {
           title: "All Champions",
@@ -60,8 +60,7 @@ export default {
           to: "/AllChampions"
         },
         { title: "Items", icon: "dashboard", to: "/Items" },
-        { title: "Login", icon: "question_answer", to: "/Login" },
-        { title: "Signup", icon: "question_answer", to: "/Signup" }
+        { title: "Community Chat", icon: "question_answer", to: "/Login" }
       ],
       mini: false,
       right: null
@@ -76,7 +75,7 @@ export default {
 <style scoped>
 .menu_icon {
   position: fixed;
-  width: 40px;
+  width: 50px;
   z-index: 2;
   border-radius: 50%;
 }

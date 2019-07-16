@@ -1,16 +1,12 @@
 <template>
-  <div class="login">
-    <h3>Sing In</h3>
-    <input type="text" v-model="email" placeholder="Email" />
+  <v-content class="login">
+    <h3>Community Chat</h3>
+    <!-- <input type="text" v-model="email" placeholder="Email" />
     <br />
     <input type="text" v-model="password" placeholder="Password" />
-    <br />
-    <v-btn @click="login">Connection</v-btn>
-    <p>
-      You don't have an account? You can
-      <router-link to="/signup">create one</router-link>
-    </p>
-  </div>
+    <br />-->
+    <v-btn @click="login">Sign in with Google</v-btn>
+  </v-content>
 </template>
 
 <script>
@@ -26,12 +22,16 @@ export default {
   },
   methods: {
     login: function() {
+      let that = this;
+      var provider = new firebase.auth.GoogleAuthProvider();
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
+        .signInWithPopup(provider)
+        // .signInWithEmailAndPassword(this.email, this.password)
         .then(
           function(user) {
-            this.$router.replace("chat");
+            console.log(user);
+            that.$router.replace("chat");
           },
           function(err) {
             alert("Oops. " + err.message);
@@ -43,17 +43,17 @@ export default {
 </script>
 
 <style scoped>
-/* .login {
+.login {
   margin-top: 40px;
 }
 input {
   margin: 10px 0;
-  width: 20%;
+  width: 40%;
   padding: 15px;
 }
 button {
   margin-top: 20px;
-  width: 10%;
+  width: 50%;
   cursor: pointer;
 }
 p {
@@ -63,5 +63,5 @@ p {
 p a {
   text-decoration: underline;
   cursor: pointer;
-} */
+}
 </style>

@@ -48,6 +48,13 @@ export default {
           description:
             "As the game progresses you’ll acquire gold you can spend on powerful items that improve your champions performance on the Fields of Justice. Items can provide all manner of useful bonuses such as faster movement, improved damage, increased durability, reduced ability cooldowns, etc. You can purchase items from the shop near the summoner platform where you spawn at the beginning of a game.",
           to: "/items"
+        },
+        {
+          image: "../images/EU_G2.jpg",
+          title: "Community Chat",
+          description:
+            "Community Events are officially-endorsed tournaments, leagues, viewing parties, meet-ups, and more. Find your spec whether you play, paint, theorycraft, LARP or however you get your League on. A community event can be just about anything, so long as it’s League-oriented and doesn’t break any pesky rules like laws or Pirate Codes.",
+          to: "/login"
         }
       ]
     };
@@ -59,5 +66,4 @@ export default {
 .card {
   margin-top: 20px;
 }
-
 </style>

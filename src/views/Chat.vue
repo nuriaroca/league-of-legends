@@ -1,6 +1,6 @@
 <template>
   <v-container class="chat">
-    <button @click="logout">Logout</button>
+    <v-btn @click="logout">Logout</v-btn>
   </v-container>
 </template>
 
