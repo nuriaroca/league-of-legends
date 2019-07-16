@@ -27,7 +27,6 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provider)
-        // .signInWithEmailAndPassword(this.email, this.password)
         .then(
           function(user) {
             console.log(user);

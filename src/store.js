@@ -12,7 +12,8 @@ export default new Vuex.Store({
     loading: false,
     champs: {},
     items: {},
-    champ: {}
+    champ: {},
+    user: {},
   },
   mutations: {
     SET_VERSION: (state, data) => {
@@ -37,6 +38,9 @@ export default new Vuex.Store({
     },
     SET_UNIQUECHAMPION: (state, data) => {
       state.champ = data
+    },
+    SET_USER: (state, data) => {
+      state.user = data
     }
   },
   //context = store
@@ -81,6 +85,7 @@ export default new Vuex.Store({
     getLoading: state => state.loading,
     getChamps: state => state.champs,
     getItems: state => state.items,
-    getChamp: state => state.champ
+    getChamp: state => state.champ,
+    getUser: state => state.user
   }
 })

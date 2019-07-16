@@ -81,6 +81,6 @@ export default {
 }
 
 .burger-menu {
-  padding: 12px 0 0 13px;
+  padding: 14px 0 0 14px;
 }
 </style>
