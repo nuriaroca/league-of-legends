@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <Breadcrumbs :items="items"></Breadcrumbs>
-    <h1 v-if="champion">{{champion.name}}</h1>
-    <h3 v-if="champion">{{champion.title}}</h3>
-    <ChampionDetails v-bind:champion="champion" v-if="champion"></ChampionDetails>
+    <h1 v-if="getChamp">{{getChamp.name}}</h1>
+    <h3 v-if="getChamp">{{getChamp.title}}</h3>
+    <ChampionDetails v-if="getChamp"></ChampionDetails>
   </v-container>
 </template>
 
@@ -11,7 +11,7 @@
 import ChampionDetails from "../components/ChampionDetails";
 import Breadcrumbs from "../components/Breadcrumbs";
 import axios from "axios";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   components: {
@@ -19,9 +19,9 @@ export default {
     ChampionDetails
   },
   props: ["championName"],
+
   data() {
     return {
-      champion: null,
       items: [
         {
           text: "Home",
@@ -42,25 +42,18 @@ export default {
     };
   },
   created() {
-    this.getData();
-  },
-  methods: {
-    getData() {
-      console.log("get");
-      const url = `https://ddragon.leagueoflegends.com/cdn/${this.getVersion}/data/en_US/champion/${this.championName}.json`;
-      axios.get(url).then(response => {
-        console.log(response);
-        this.champion = response.data.data[this.championName];
-      });
-    }
+    this.getUniqueChampion(this.championName);
   },
   computed: {
-    ...mapGetters(["getVersion"])
+    ...mapGetters(["getChamp"])
+  },
+  methods: {
+    ...mapActions(["getUniqueChampion"])
   }
 };
 </script>
 
-<style>
+<style scoped>
 h1 {
   margin-left: 16px;
 }

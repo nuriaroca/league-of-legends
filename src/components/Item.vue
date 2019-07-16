@@ -27,7 +27,6 @@
                         Cost:
                         {{item.gold}}
 
-
                         <button class="modal-default-button" @click="$emit('close')">
                             X
                         </button>
@@ -42,6 +41,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   props: ["item"],
   created() {
@@ -49,11 +50,13 @@ export default {
   },
   data: {
     showModal: false
+  },
+  computed: {
+    ...mapGetters(["getItems"])
   }
 };
 </script>
-
-<style>
+<style scoped>
 .modal-mask {
   position: fixed;
   z-index: 9998;

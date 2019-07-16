@@ -21,7 +21,7 @@ import ChampionIcon from "../components/ChampionIcon";
 import Breadcrumbs from "../components/Breadcrumbs";
 import axios from "axios";
 import Filters from "../components/Filters";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   components: {
@@ -31,7 +31,6 @@ export default {
   },
   data() {
     return {
-      champions: {},
       items: [
         {
           text: "Home",
@@ -47,25 +46,21 @@ export default {
     };
   },
   created() {
-    this.getData();
+    this.getAllChamps();
   },
   methods: {
-    getData() {
-      const url = `https://ddragon.leagueoflegends.com/cdn/${this.getVersion}/data/en_US/champion.json`;
-      axios.get(url).then(response => {
-        this.champions = response.data.data;
-      });
-    }
+    ...mapActions(["getAllChamps"])
   },
   computed: {
-    ...mapGetters(["getVersion", "getRole", "getSearch"]),
+    ...mapGetters(["getRole", "getSearch", "getChamps"]),
+
     roleFilter() {
-      return Object.values(this.champions).filter(champion =>
+      return Object.values(this.getChamps).filter(champion =>
         champion.tags.includes(this.getRole)
       );
     },
     searchFilter() {
-      return Object.search(this.champions).filter(champion => {
+      return Object.search(this.getChamps).filter(champion => {
         return champion.name.match(this.getSearch);
       });
 
@@ -80,7 +75,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .icons {
   display: flex;
   flex-wrap: wrap;

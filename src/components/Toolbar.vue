@@ -53,21 +53,19 @@ export default {
       drawer: null,
       items: [
         { title: "Home", icon: "dashboard", to: "/" },
+        { title: "Game Modes", icon: "dashboard", to: "/Game-modes" },
         {
           title: "All Champions",
           icon: "question_answer",
           to: "/AllChampions"
         },
-        { title: "Game Modes", icon: "dashboard", to: "/Game-modes" },
-        { title: "Chat", icon: "question_answer" },
-        { title: "Items", icon: "dashboard", to: "/Items" }
+        { title: "Items", icon: "dashboard", to: "/Items" },
+        { title: "Login", icon: "question_answer", to: "/Login" },
+        { title: "Signup", icon: "question_answer", to: "/Signup" }
       ],
       mini: false,
       right: null
     };
-  },
-  methods: {
-    ...mapActions(["testAction"])
   },
   computed: {
     ...mapGetters(["getTest"])

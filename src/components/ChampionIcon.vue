@@ -14,12 +14,9 @@ import { mapGetters } from "vuex";
 
 export default {
   props: ["champion"],
-  data() {
-    return {};
-  },
   computed: {
-    ...mapGetters(["getVersion"])
-  }
+    ...mapGetters(["getVersion", "getChamp"])
+  },
 };
 </script>
 

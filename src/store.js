@@ -6,11 +6,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    selectedChampion: null,
     version: null,
     search: "",
     role: "",
-    loader: false
+    loading: false,
+    champs: {},
+    items: {},
+    champ: {}
   },
   mutations: {
     SET_VERSION: (state, data) => {
@@ -25,26 +27,60 @@ export default new Vuex.Store({
       state.role = data
     },
     LOADER: (state, payload) => {
-      state.loader = payload
+      state.loading = payload
+    },
+    SET_CHAMPS: (state, data) => {
+      state.champs = data
+    },
+    SET_ITEMS: (state, data) => {
+      state.items = data
+    },
+    SET_UNIQUECHAMPION: (state, data) => {
+      state.champ = data
     }
-
   },
   //context = store
   actions: {
-    getVersion(context) {
+    getCurrentVersion(context) {
+      context.commit("LOADER", true)
       const url = "https://ddragon.leagueoflegends.com/api/versions.json";
       axios.get(url).then(response => {
         context.commit("SET_VERSION", response.data[0])
+        context.commit("LOADER", false)
+      })
+    },
+    getAllChamps(context) {
+      context.commit("LOADER", true)
+      const url = `https://ddragon.leagueoflegends.com/cdn/${context.getters.getVersion}/data/en_US/champion.json`;
+      axios.get(url).then(response => {
+        context.commit("SET_CHAMPS", response.data.data)
+        context.commit("LOADER", false)
+      })
+    },
+    getAllItems(context) {
+      context.commit("LOADER", true)
+      const url = `https://ddragonexplorer.com/cdn/9.8.1/data/en_US/item.json`;
+      axios.get(url).then(response => {
+        context.commit("SET_ITEMS", response.data.data)
+        context.commit("LOADER", false)
+      })
+    },
+    getUniqueChampion(context, championName) {
+      context.commit("LOADER", true)
+      const url = `https://ddragon.leagueoflegends.com/cdn/${context.getters.getVersion}/data/en_US/champion/${championName}.json`;
+      axios.get(url).then(response => {
+        context.commit("SET_UNIQUECHAMPION", response.data.data[championName]);
+        context.commit("LOADER", false)
       })
     }
   },
   getters: {
-    getChampion: state => state.selectedChampion,
     getVersion: state => state.version,
     getSearch: state => state.search,
-    getRole: state => state.role
-    // getChampion2(state) {
-    //   return state.selectedChampion
-    // }
+    getRole: state => state.role,
+    getLoading: state => state.loading,
+    getChamps: state => state.champs,
+    getItems: state => state.items,
+    getChamp: state => state.champ
   }
 })

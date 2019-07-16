@@ -3,18 +3,20 @@
     <v-layout>
       <v-flex xs12 sm6 offset-sm3>
         <div v-for="(item,i) in items" :key="i" class="card">
-          <v-img :src="item.image" aspect-ratio="2.75"></v-img>
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">{{item.title}}</h3>
-              <div>{{item.description}}</div>
-            </div>
-          </v-card-title>
-          <v-card-actions>
-            <router-link :to="item.to">
-              <v-btn color="dark">Explore</v-btn>
-            </router-link>
-          </v-card-actions>
+          <v-card>
+            <v-img :src="item.image" aspect-ratio="2.75"></v-img>
+            <v-card-title primary-title>
+              <div>
+                <h3 class="headline mb-0">{{item.title}}</h3>
+                <div>{{item.description}}</div>
+              </div>
+            </v-card-title>
+            <v-card-actions>
+              <router-link :to="item.to">
+                <v-btn color="dark">Explore</v-btn>
+              </router-link>
+            </v-card-actions>
+          </v-card>
         </div>
       </v-flex>
     </v-layout>
@@ -57,6 +59,5 @@ export default {
 .card {
   margin-top: 20px;
 }
-v-btn {
-}
+
 </style>

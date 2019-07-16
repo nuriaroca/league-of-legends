@@ -1,20 +1,19 @@
 <template>
   <v-container>
-    <p>{{champion.lore}}</p>
-    <Carousel :champion="champion"></Carousel>
+    <p>{{getChamp.lore}}</p>
+    <Carousel :champion="getChamp"></Carousel>
   </v-container>
 </template>
 
 <script>
 import Carousel from "./Carousel";
+import { mapGetters } from "vuex";
 
 export default {
-  props: ["champion"],
   components: {
     Carousel
   },
-  created() {
-    console.log(this.champion);
+  updated() {
     //landscape
     // document.getElementById("app").style.backgroundImage =
     //   "url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" +
@@ -29,7 +28,7 @@ export default {
     //portrait
     document.getElementById("app").style.backgroundImage =
       "url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
-      this.champion.id +
+      this.getChamp.id +
       "_0.jpg)";
     document.getElementById("app").style.backgroundSize = "contain";
     document.getElementById("app").style.backgroundColor = "black";
@@ -38,6 +37,9 @@ export default {
   },
   beforeDestroy() {
     document.getElementById("app").style.background = "white";
+  },
+  computed: {
+    ...mapGetters(["getChamp"])
   }
 };
 </script>

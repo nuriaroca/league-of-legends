@@ -1,9 +1,9 @@
 <template>
   <v-carousel max="100%" height="200" hide-delimiters>
     <v-carousel-item
-      v-for="(skin,i) in champion.skins"
+      v-for="(skin,i) in getChamp.skins"
       :key="i"
-      :src="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + champion.id + '_' + skin.num + '.jpg'"
+      :src="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + getChamp.id + '_' + skin.num + '.jpg'"
       reverse-transition="fade"
       transition="fade"
     ></v-carousel-item>
@@ -11,10 +11,10 @@
 </template>
 // v-if="i!== 0"
 <script>
+import { mapGetters } from "vuex";
 export default {
-  props: ["champion"],
-  data() {
-    return {};
+  computed: {
+    ...mapGetters(["getChamp"])
   }
 };
 </script>

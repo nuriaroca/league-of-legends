@@ -8,9 +8,10 @@
 </template>
 
 <script>
-import Item from "../components/Item";
 import Breadcrumbs from "../components/Breadcrumbs";
 import axios from "axios";
+import { mapGetters } from "vuex";
+import Item from "../components/Item";
 
 export default {
   components: {
@@ -28,28 +29,25 @@ export default {
         },
         {
           text: "Items",
-          disabled: false,
+          disabled: true,
           to: "/Items"
         }
       ]
     };
   },
-  created() {
-    this.getData();
-  },
-  methods: {
-    getData() {
-      const url = `https://ddragonexplorer.com/cdn/${this.getVersion}/data/en_US/item.json`;
-      axios.get(url).then(response => {
-        console.log(response);
-        this.items = response.data.data;
-      });
-    }
+  // created() {
+  //   this.getAllItems();
+  // },
+  // methods: {
+  //   ...mapActions(["getAllItems"])
+  // },
+  computed: {
+    ...mapGetters(["getItems"])
   }
 };
 </script>
 
-<style>
+<style scoped>
 p {
   text-align: justify;
 }
