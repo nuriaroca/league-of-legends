@@ -2,10 +2,19 @@
   <div class="new-message">
     <form @submit.prevent="addMessage">
       <label for="new-message"></label>
-      <input type="text" name="new-message" v-model="newMessage" />
-      <v-btn>
-        <v-icon>send</v-icon>
-      </v-btn>
+      <div class="send">
+        <v-flex class="write" xs12 sm6 md3>
+          <v-text-field
+            v-model="newMessage"
+            label="Outline"
+            placeholder="Write your message"
+            outline
+          ></v-text-field>
+        </v-flex>
+        <v-btn @click="addMessage()">
+          <v-icon>send</v-icon>
+        </v-btn>
+      </div>
     </form>
   </div>
 </template>
@@ -14,7 +23,7 @@
 import firebase from "firebase";
 export default {
   name: "NewMessage",
-  props: ["name"],
+
   data() {
     return {
       newMessage: null
@@ -25,10 +34,13 @@ export default {
       console.log(this.newMessage, this.name, Date.now());
       let text = this.newMessage;
       let name = this.$store.state.user.displayName;
+      let image = this.$store.state.user.photoURL;
+
       // let date = String.Format("{0:dd/MM/yyyy}", Date.now());
       let obj = {
         text,
-        name
+        name,
+        image
       };
       firebase
         .database()
@@ -41,4 +53,24 @@ export default {
 </script>
 
 <style>
+.send {
+  display: flex;
+}
+.write {
+  width: 80%;
+}
+v-btn {
+  width: 20%;
+}
+@media (orientation: landscape) {
+  .send {
+    display: flex;
+  }
+  .write {
+    max-width: 100%;
+  }
+  v-btn {
+    width: 20%;
+  }
+}
 </style>

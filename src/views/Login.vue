@@ -41,34 +41,22 @@ export default {
 <style scoped>
 .welcome {
   max-width: 400px;
-  margin-top: 100px;
+  margin-top: 70px;
 }
 .welcome h2 {
   font-size: 2em;
+  text-align: center;
 }
-v-btn {
-  margin: 30px auto;
-}
-
-/* .login {
-  margin-top: 40px;
-}
-input {
-  margin: 10px 0;
-  width: 40%;
-  padding: 15px;
-}
-button {
-  margin-top: 20px;
-  width: 50%;
-  cursor: pointer;
-}
-p {
-  margin-top: 40px;
-  font-size: 13px;
-}
-p a {
-  text-decoration: underline;
-  cursor: pointer;
+/* .card {
+  margin-left: 70px;
 } */
+button {
+  margin: 10px 0 0 104.684px;
+  align-self: center;
+}
+@media (orientation: landscape) {
+  .card {
+    margin-left: 70px;
+  }
+}
 </style>

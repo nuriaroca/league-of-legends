@@ -14,26 +14,26 @@ export default {
     Carousel
   },
   updated() {
-    //landscape
-    // document.getElementById("app").style.backgroundImage =
-    //   "url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" +
-    //   this.champion.id +
-    //   "_0.jpg)";
-    // document.getElementById("app").style.backgroundSize = "contain";
-    // document.getElementById("app").style.backgroundColor = "black";
-    // document.getElementById("app").style.backgroundRepeat = "no-repeat";
-    // document.getElementById("app").style.backgroundPositionX = "center";
-    // document.getElementById("app").style.backgroundAttachment = "fixed";
-
-    //portrait
-    document.getElementById("app").style.backgroundImage =
-      "url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
-      this.getChamp.id +
-      "_0.jpg)";
-    document.getElementById("app").style.backgroundSize = "contain";
-    document.getElementById("app").style.backgroundColor = "black";
-    document.getElementById("app").style.backgroundRepeat = "no-repeat";
-    document.getElementById("app").style.backgroundAttachment = "fixed";
+    if (media(orientation == landscape)) {
+      document.getElementById("app").style.backgroundImage =
+        "url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" +
+        this.champion.id +
+        "_0.jpg)";
+      document.getElementById("app").style.backgroundSize = "contain";
+      document.getElementById("app").style.backgroundColor = "black";
+      document.getElementById("app").style.backgroundRepeat = "no-repeat";
+      document.getElementById("app").style.backgroundPositionX = "center";
+      document.getElementById("app").style.backgroundAttachment = "fixed";
+    } else {
+      document.getElementById("app").style.backgroundImage =
+        "url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
+        this.getChamp.id +
+        "_0.jpg)";
+      document.getElementById("app").style.backgroundSize = "contain";
+      document.getElementById("app").style.backgroundColor = "black";
+      document.getElementById("app").style.backgroundRepeat = "no-repeat";
+      document.getElementById("app").style.backgroundAttachment = "fixed";
+    }
   },
   beforeDestroy() {
     document.getElementById("app").style.background = "white";
@@ -48,4 +48,8 @@ export default {
 p {
   text-align: justify;
 }
+/* 
+@media (orientation: landscape) {
+ 
+} */
 </style>

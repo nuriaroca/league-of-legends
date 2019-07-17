@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-layout>
-      <v-flex xs12 sm6 offset-sm3>
+      <v-flex>
         <div v-for="(item,i) in items" :key="i" class="card">
           <v-card>
             <v-img :src="item.image" aspect-ratio="2.75"></v-img>
@@ -65,5 +65,23 @@ export default {
 <style>
 .card {
   margin-top: 20px;
+}
+@media (orientation: landscape) {
+  /* .v-card {
+    width: 480px;
+    margin-top: 20px;
+    margin-left: 80px;
+  } */
+  .card {
+    margin-right: 0px;
+    width: 80%;
+    margin-left: 65px;
+    margin-top: 20px;
+    align-self: auto;
+  }
+  v-flex {
+    margin: 0;
+    width: 100%;
+  }
 }
 </style>

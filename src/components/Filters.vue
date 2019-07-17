@@ -4,12 +4,20 @@
       <v-flex xs12 sm6 md3>
         <v-text-field
           @input="SET_SEARCH(search)"
+          v-model="search"
+          placeholder="Search champion"
+        ></v-text-field>
+      </v-flex>
+<!-- 
+      <v-flex xs12 sm6 md3>
+        <v-text-field
+          @input="SET_SEARCH(search)"
           class="search-box btn-outline-info"
           type="text"
           v-model="search"
           label="Search champion"
-        ></v-text-field>
-      </v-flex>
+        ></v-text-field> -->
+
     </div>
 
     <div>
@@ -90,9 +98,9 @@ export default {
 }
 
 .search {
-  width: 250px;
+  width: 50%;
   margin-left: 10px;
-  border: solid;
+
   padding-left: 20px;
   padding-right: 20px;
 }

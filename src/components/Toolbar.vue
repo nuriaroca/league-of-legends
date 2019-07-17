@@ -41,12 +41,14 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
+      <v-btn v-if="this.$store.state.user" @click="logout">Logout</v-btn>
     </v-navigation-drawer>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import firebase from "firebase";
 export default {
   data() {
     return {
@@ -60,11 +62,25 @@ export default {
           to: "/AllChampions"
         },
         { title: "Items", icon: "dashboard", to: "/Items" },
-        { title: "Community Chat", icon: "question_answer", to: "/Login" },
+        { title: "Community Chat", icon: "question_answer", to: "/Login" }
       ],
+
       mini: false,
       right: null
     };
+  },
+  created() {
+    this.logout();
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("login");
+        });
+    }
   },
   computed: {
     ...mapGetters(["getTest"])

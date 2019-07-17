@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './store';
 // import firebase from "firebase"
 
 Vue.use(Router)
@@ -42,11 +43,19 @@ const router = new Router({
       path: "/Chat",
       name: "chat",
       component: () => import('./views/Chat.vue'),
-      meta: {
-        requiresAuth: true
-      }
+      // meta: {
+      //   requiresAuth: true
+      // },
     }
   ]
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.path == "/Login" && store.state.user) {
+    next("/Chat")
+  } else {
+    next()
+  }
 });
 
 // router.beforeEach((to, from, next) => {

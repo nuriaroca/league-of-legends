@@ -2,7 +2,7 @@
   <div>
     <div>
       <Breadcrumbs :items="items"></Breadcrumbs>
-      <Filters></Filters>
+      <Filters class="filters"></Filters>
       <h1>Champions</h1>
       <!-- champion = value (data), key = nom, index = position -->
       <div class="icons">
@@ -75,5 +75,13 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+@media (orientation: landscape) {
+  .filters {
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>
