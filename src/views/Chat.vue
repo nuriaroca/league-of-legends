@@ -1,24 +1,28 @@
 <template>
   <v-container class="chat">
     <h2 class="center teal-text">League of Legends Chat</h2>
-    <div class="card">
+    <div id="contairner" class="container">
       <div class="card-content">
-        <ul class="messages">
-          <li v-for="(value, key, index) in chats" :key="index">
-            <span class="teal-text">{{value.name}}</span>
+        <ul class="messages text-xs-right">
+          <v-card-text v-for="(value, key, index) in chats" :key="index">
+            <span>{{value.photoURL}}</span>
+            <br />
+            <span
+              class="teal-text"
+              v-if="$store.state.user.displayName == value.name"
+            >{{value.name}}</span>
             <br />
             <span class="grey-text text-darken-3">{{value.text}}</span>
             <br />
             <span class="grey-text time">{{value.date}}</span>
             <br />
-          </li>
+          </v-card-text>
         </ul>
       </div>
       <div class="card-action">
         <NewMessage name="name"></NewMessage>
       </div>
     </div>
-
     <v-btn @click="logout">Logout</v-btn>
   </v-container>
 </template>
@@ -35,11 +39,12 @@ export default {
   },
   data() {
     return {
-      chats: {},
-      date: String.Format("{0:dd/MM/yyyy}", Date.now)
+      chats: {}
     };
   },
   created() {
+    console.log(this.$store.state.user);
+
     this.getPosts();
   },
   methods: {
@@ -66,15 +71,57 @@ export default {
 </script>
 
 <style scoped>
-.chat h2 {
-  font-size: 2.6em;
-  margin-bottom: 40px;
+body {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 20px;
 }
-.chat span {
-  font-size: 1.4em;
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
 }
-.chat .time {
-  display: block;
-  font-size: 1.2em;
+ul {
+  width: 100%;
+  height: 400px;
+  overflow: scroll;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
 }
 </style>

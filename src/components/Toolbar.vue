@@ -60,7 +60,7 @@ export default {
           to: "/AllChampions"
         },
         { title: "Items", icon: "dashboard", to: "/Items" },
-        { title: "Community Chat", icon: "question_answer", to: "/Login" }
+        { title: "Community Chat", icon: "question_answer", to: "/Login" },
       ],
       mini: false,
       right: null

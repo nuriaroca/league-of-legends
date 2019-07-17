@@ -1,10 +1,10 @@
 <template>
-  <v-content class="login">
-    <h3>Community Chat</h3>
-    <!-- <input type="text" v-model="email" placeholder="Email" />
-    <br />
-    <input type="text" v-model="password" placeholder="Password" />
-    <br />-->
+  <v-content class="welcome container">
+    <div class="card">
+      <div class="card-content center-align">
+        <h2 class="teal-text">Community Chat</h2>
+      </div>
+    </div>
     <v-btn @click="login">Sign in with Google</v-btn>
   </v-content>
 </template>
@@ -15,10 +15,7 @@ import firebase from "firebase";
 export default {
   name: "login",
   data() {
-    return {
-      email: "",
-      password: ""
-    };
+    return {};
   },
   methods: {
     login: function() {
@@ -30,10 +27,10 @@ export default {
         .then(
           function(user) {
             console.log(user);
-            that.$router.replace("chat");
+            that.$router.push("chat");
           },
           function(err) {
-            alert("Oops. " + err.message);
+            console.log("Oops. " + err.message);
           }
         );
     }
@@ -42,7 +39,18 @@ export default {
 </script>
 
 <style scoped>
-.login {
+.welcome {
+  max-width: 400px;
+  margin-top: 100px;
+}
+.welcome h2 {
+  font-size: 2em;
+}
+v-btn {
+  margin: 30px auto;
+}
+
+/* .login {
   margin-top: 40px;
 }
 input {
@@ -62,5 +70,5 @@ p {
 p a {
   text-decoration: underline;
   cursor: pointer;
-}
+} */
 </style>

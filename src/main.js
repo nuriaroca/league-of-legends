@@ -11,8 +11,6 @@ import firebase from 'firebase';
 
 Vue.config.productionTip = false
 
-let app = '';
-
 firebase.initializeApp({
   apiKey: "AIzaSyBtLg_WMEfKdlB3g-2GRFdToWAkb94H4oI",
   authDomain: "lol-chat-88682.firebaseapp.com",
@@ -23,19 +21,22 @@ firebase.initializeApp({
   appId: "1:544191041433:web:866a1cc0826fa176"
 });
 
-firebase.auth().onAuthStateChanged(() => {
-  if (!app) {
-    app = new Vue({
-      router,
-      store,
-      render: h => h(App),
-      methods: {
-        ...mapActions(["getCurrentVersion"])
-      },
-      // SHA DE CRIDAR!!!!!
-      created() {
-        this.getCurrentVersion()
-      },
-    }).$mount('#app')
+new Vue({
+  router,
+  store,
+  render: h => h(App),
+  methods: {
+    ...mapActions(["getCurrentVersion"])
+  },
+  created() {
+    this.getCurrentVersion()
+  },
+}).$mount('#app')
+
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    store.commit("SET_USER", user)
+  } else {
+    store.commit("SET_USER", null)
   }
 })
