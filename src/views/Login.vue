@@ -51,7 +51,7 @@ export default {
   margin-left: 70px;
 } */
 button {
-  margin: 10px 0 0 104.684px;
+  margin: 10px 0 0 103.206px;
   align-self: center;
 }
 @media (orientation: landscape) {

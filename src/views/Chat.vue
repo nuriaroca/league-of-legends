@@ -111,7 +111,11 @@ body {
   max-width: 60px;
   border-radius: 50%;
 }
-
+.message {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 .leftis {
   text-align: left;
 }
@@ -119,5 +123,4 @@ body {
 @media (orientation: landscape) {
   /* 89.803 */
 }
-
 </style>

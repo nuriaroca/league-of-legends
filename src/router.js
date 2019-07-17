@@ -51,12 +51,14 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.path == "/Login" && store.state.user) {
+  if (to.path === "/Login" && store.state.user) {
     next("/Chat")
   } else {
     next()
   }
 });
+
+
 
 // router.beforeEach((to, from, next) => {
 //   const currentUser = firebase.auth().currentUser;

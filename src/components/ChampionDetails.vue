@@ -14,25 +14,38 @@ export default {
     Carousel
   },
   updated() {
-    if (media(orientation == landscape)) {
-      document.getElementById("app").style.backgroundImage =
-        "url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" +
-        this.champion.id +
-        "_0.jpg)";
-      document.getElementById("app").style.backgroundSize = "contain";
-      document.getElementById("app").style.backgroundColor = "black";
-      document.getElementById("app").style.backgroundRepeat = "no-repeat";
-      document.getElementById("app").style.backgroundPositionX = "center";
-      document.getElementById("app").style.backgroundAttachment = "fixed";
-    } else {
-      document.getElementById("app").style.backgroundImage =
-        "url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
-        this.getChamp.id +
-        "_0.jpg)";
-      document.getElementById("app").style.backgroundSize = "contain";
-      document.getElementById("app").style.backgroundColor = "black";
-      document.getElementById("app").style.backgroundRepeat = "no-repeat";
-      document.getElementById("app").style.backgroundAttachment = "fixed";
+    this.myEventHandler();
+  },
+  created() {
+    window.addEventListener("resize", this.myEventHandler);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.myEventHandler);
+  },
+  methods: {
+    myEventHandler(e) {
+      if (window.innerHeight > window.innerWidth) {
+        console.log("portrait");
+        document.getElementById("app").style.backgroundImage =
+          "url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
+          this.getChamp.id +
+          "_0.jpg)";
+        document.getElementById("app").style.backgroundSize = "contain";
+        document.getElementById("app").style.backgroundColor = "black";
+        document.getElementById("app").style.backgroundRepeat = "no-repeat";
+        document.getElementById("app").style.backgroundAttachment = "fixed";
+      } else {
+        console.log("landscape");
+        document.getElementById("app").style.backgroundImage =
+          "url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" +
+          this.getChamp.id +
+          "_1.jpg)";
+        document.getElementById("app").style.backgroundSize = "contain";
+        document.getElementById("app").style.backgroundColor = "black";
+        document.getElementById("app").style.backgroundRepeat = "no-repeat";
+        document.getElementById("app").style.backgroundPositionX = "center";
+        document.getElementById("app").style.backgroundAttachment = "fixed";
+      }
     }
   },
   beforeDestroy() {
@@ -48,8 +61,17 @@ export default {
 p {
   text-align: justify;
 }
-/* 
+
 @media (orientation: landscape) {
- 
-} */
+  /* 
+  document.getElementById("app").style.backgroundImage =
+        "url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" +
+        this.champion.id +
+        "_0.jpg)";
+      document.getElementById("app").style.backgroundSize = "contain";
+      document.getElementById("app").style.backgroundColor = "black";
+      document.getElementById("app").style.backgroundRepeat = "no-repeat";
+      document.getElementById("app").style.backgroundPositionX = "center";
+      document.getElementById("app").style.backgroundAttachment = "fixed";  */
+}
 </style>

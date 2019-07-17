@@ -69,9 +69,6 @@ export default {
       right: null
     };
   },
-  created() {
-    this.logout();
-  },
   methods: {
     logout() {
       firebase

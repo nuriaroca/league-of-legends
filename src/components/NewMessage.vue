@@ -31,7 +31,6 @@ export default {
   },
   methods: {
     addMessage() {
-      console.log(this.newMessage, this.name, Date.now());
       let text = this.newMessage;
       let name = this.$store.state.user.displayName;
       let image = this.$store.state.user.photoURL;
