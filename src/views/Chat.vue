@@ -17,8 +17,9 @@
 
             <div class="darker lefties essage" v-else>
               <img :src="value.image" alt="avatar" />
+
               <div class="text">
-                <span class="teal-text">{{value.name}}</span>
+                <span style="font-weight:bold" class="teal-text">{{value.name}}</span>
                 <br />
                 <span class="grey-text text-darken-3">{{value.text}}</span>
               </div>
@@ -121,10 +122,9 @@ body {
 }
 img {
   border-style: none;
-  margin-left: 30px;
-}
-
-@media (orientation: landscape) {
-  /* 89.803 */
+  margin-left: 10px;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
 }
 </style>
