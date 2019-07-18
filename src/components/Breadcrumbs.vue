@@ -21,7 +21,6 @@ export default {
   color: #c19232;
   padding-top: 5px;
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 .v-breadcrumbs {
   padding-top: 0px;

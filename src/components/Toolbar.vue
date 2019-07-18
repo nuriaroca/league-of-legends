@@ -41,7 +41,7 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-      <v-btn v-if="this.$store.state.user" @click="logout">Logout</v-btn>
+      <v-btn light v-if="this.$store.state.user" @click="logout">Logout</v-btn>
     </v-navigation-drawer>
   </div>
 </template>
@@ -92,7 +92,9 @@ export default {
   z-index: 2;
   border-radius: 50%;
 }
-
+v-btn {
+  height: 29px;
+}
 .burger-menu {
   padding: 14px 0 0 14px;
 }

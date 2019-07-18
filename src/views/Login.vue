@@ -4,7 +4,7 @@
       <h2 class="teal-text">Community Chat</h2>
     </div>
 
-    <v-btn @click="login">Sign in with Google</v-btn>
+    <v-btn dark @click="login">Sign in with Google</v-btn>
   </v-content>
 </template>
 
@@ -50,6 +50,7 @@ export default {
 button {
   margin: 10px 0 0 103.206px;
   align-self: center;
+  height: 37px;
 }
 @media (orientation: landscape) {
   .card {
@@ -63,6 +64,7 @@ button {
     font-size: 2em;
     margin-left: 87px;
     text-align: initial;
+    margin-left: 10px;
   }
 }
 </style>

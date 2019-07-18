@@ -62,7 +62,11 @@ export default {
   width: 20%;
   height: 57px;
   border: solid;
-  margin-top: 0;
+
+  margin: 0 8px;
+}
+.v-btn {
+  height: 57px;
 }
 @media (orientation: landscape) {
   .send {
