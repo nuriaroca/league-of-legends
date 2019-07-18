@@ -34,4 +34,9 @@ export default {
     }
   }
 }
+
+.v-carousel {
+  border: solid;
+  color: #c19232;
+}
 </style>

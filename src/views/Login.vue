@@ -1,10 +1,9 @@
 <template>
   <v-content class="welcome container">
-    <div class="card">
-      <div class="card-content center-align">
-        <h2 class="teal-text">Community Chat</h2>
-      </div>
+    <div class="card-content center-align">
+      <h2 class="teal-text">Community Chat</h2>
     </div>
+
     <v-btn @click="login">Sign in with Google</v-btn>
   </v-content>
 </template>
@@ -47,9 +46,7 @@ export default {
   font-size: 2em;
   text-align: center;
 }
-/* .card {
-  margin-left: 70px;
-} */
+
 button {
   margin: 10px 0 0 103.206px;
   align-self: center;
@@ -57,6 +54,15 @@ button {
 @media (orientation: landscape) {
   .card {
     margin-left: 70px;
+  }
+  button {
+    margin: 10px 0 0 103.206px;
+    align-self: center;
+  }
+  .welcome h2 {
+    font-size: 2em;
+    margin-left: 87px;
+    text-align: initial;
   }
 }
 </style>

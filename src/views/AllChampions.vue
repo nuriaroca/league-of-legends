@@ -76,7 +76,10 @@ export default {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
+/* 
+.v-content__wrap {
+  background-image: url("./images/choGath.jpg");
+} */
 @media (orientation: landscape) {
   .filters {
     display: flex;

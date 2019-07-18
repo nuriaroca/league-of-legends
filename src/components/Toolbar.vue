@@ -58,7 +58,7 @@ export default {
         { title: "Game Modes", icon: "dashboard", to: "/Game-modes" },
         {
           title: "All Champions",
-          icon: "question_answer",
+          icon: "dashboard",
           to: "/AllChampions"
         },
         { title: "Items", icon: "dashboard", to: "/Items" },

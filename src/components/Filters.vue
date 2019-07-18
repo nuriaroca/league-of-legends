@@ -2,13 +2,9 @@
   <div>
     <div class="search">
       <v-flex xs12 sm6 md3>
-        <v-text-field
-          @input="SET_SEARCH(search)"
-          v-model="search"
-          placeholder="Search champion"
-        ></v-text-field>
+        <v-text-field @input="SET_SEARCH(search)" v-model="search" placeholder="Search champion"></v-text-field>
       </v-flex>
-<!-- 
+      <!-- 
       <v-flex xs12 sm6 md3>
         <v-text-field
           @input="SET_SEARCH(search)"
@@ -16,8 +12,7 @@
           type="text"
           v-model="search"
           label="Search champion"
-        ></v-text-field> -->
-
+      ></v-text-field>-->
     </div>
 
     <div>
@@ -81,6 +76,9 @@ export default {
 </script>
 
 <style scoped>
+.radio {
+  margin-left: 30px;
+}
 .v-radio {
   display: none;
 }
@@ -98,11 +96,25 @@ export default {
 }
 
 .search {
-  width: 50%;
-  margin-left: 10px;
+  width: 70%;
+  margin-left: 49px;
+}
 
-  padding-left: 20px;
-  padding-right: 20px;
+@media (orientation: landscape) {
+  .search {
+    width: 50%;
+    margin-left: 10px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .radio {
+    width: 50%;
+    margin-right: 30px;
+  }
+  .flex.sm6 {
+    max-width: 100%;
+  }
 }
 </style>
 

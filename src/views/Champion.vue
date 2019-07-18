@@ -1,8 +1,10 @@
 <template>
   <v-container>
     <Breadcrumbs :items="items"></Breadcrumbs>
-    <h1 v-if="getChamp">{{getChamp.name}}</h1>
-    <h3 v-if="getChamp">{{getChamp.title}}</h3>
+    <div class="title">
+      <h1 v-if="getChamp">{{getChamp.name}}</h1>
+      <h3 v-if="getChamp">{{getChamp.title}}</h3>
+    </div>
     <ChampionDetails v-if="getChamp"></ChampionDetails>
   </v-container>
 </template>
@@ -56,9 +58,13 @@ export default {
 <style scoped>
 h1 {
   margin-left: 16px;
+  padding-top: 10px;
 }
 h3 {
   margin-left: 16px;
   font-style: italic;
+}
+.title {
+  background: rgba(255, 255, 255, 0.8);
 }
 </style>

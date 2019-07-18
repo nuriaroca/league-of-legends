@@ -12,15 +12,20 @@
 import Toolbar from "./components/Toolbar";
 import Loader from "./components/Loader";
 import { mapGetters } from "vuex";
+import Breadcrumbs from "./components/Breadcrumbs";
 
 export default {
   name: "App",
   components: {
     Toolbar,
-    Loader
+    Loader,
+    Breadcrumbs
   },
   computed: {
     ...mapGetters(["getLoading"])
   }
 };
 </script>
+<style>
+
+</style>

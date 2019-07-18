@@ -2,12 +2,12 @@
   <v-container class="chat">
     <h2 class="center teal-text">League of Legends Chat</h2>
     <div id="contairner" class="container">
-      <div class="card-content">
+      <div id="card-content" class="card-content">
         <div id="messages" class="messages text-xs-right">
           <v-card-text v-for="(value, key, index) in chats" :key="index">
             <div class="message" v-if="$store.state.user.displayName == value.name">
               <div class="text">
-                <span class="teal-text">{{value.name}}</span>
+                <span style="font-weight:bold" class="teal-text">{{value.name}}</span>
                 <br />
                 <span class="grey-text text-darken-3">{{value.text}}</span>
               </div>
@@ -15,7 +15,7 @@
               <!-- <span class="grey-text time">{{value.date}}</span> -->
             </div>
 
-            <div class="darker leftis essage" v-else>
+            <div class="darker lefties essage" v-else>
               <img :src="value.image" alt="avatar" />
               <div class="text">
                 <span class="teal-text">{{value.name}}</span>
@@ -63,16 +63,13 @@ export default {
         .on("value", function(data) {
           var messages = data.val();
           that.chats = messages;
-          let container = document.getElementById("messages");
-          if (that.firstTime) {
-            container.scrollTop = container.scrollHeight;
-            that.firstTime = false;
-          } else {
+          let container = document.getElementById("card-content");
+          setTimeout(() => {
             container.scrollTo({
               top: container.scrollHeight,
               behavior: "smooth"
             });
-          }
+          }, 200);
         });
     }
   }
@@ -96,8 +93,6 @@ body {
 }
 #messages {
   width: 100%;
-  height: 400px;
-  overflow: scroll;
 }
 
 .darker {
@@ -108,16 +103,25 @@ body {
 
 .container img {
   float: left;
-  max-width: 60px;
+  max-width: 50px;
   border-radius: 50%;
 }
 .message {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
-.leftis {
+.lefties {
   text-align: left;
+}
+.card-content {
+  height: 400px;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+}
+img {
+  border-style: none;
+  margin-left: 30px;
 }
 
 @media (orientation: landscape) {

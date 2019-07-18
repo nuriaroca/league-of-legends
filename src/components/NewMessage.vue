@@ -11,7 +11,7 @@
             outline
           ></v-text-field>
         </v-flex>
-        <v-btn @click="addMessage()">
+        <v-btn class="botoncito" @click="addMessage()">
           <v-icon>send</v-icon>
         </v-btn>
       </div>
@@ -58,15 +58,18 @@ export default {
 .write {
   width: 80%;
 }
-v-btn {
+.botoncito {
   width: 20%;
+  height: 57px;
+  border: solid;
+  margin-top: 0;
 }
 @media (orientation: landscape) {
   .send {
     display: flex;
   }
   .write {
-    max-width: 100%;
+    max-width: 70%;
   }
   v-btn {
     width: 20%;

@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="second">
     <p>{{getChamp.lore}}</p>
     <Carousel :champion="getChamp"></Carousel>
   </v-container>
@@ -24,28 +24,26 @@ export default {
   },
   methods: {
     myEventHandler(e) {
+      let background = document.getElementById("app");
+
       if (window.innerHeight > window.innerWidth) {
         console.log("portrait");
-        document.getElementById("app").style.backgroundImage =
+        background.style.backgroundImage =
           "url(https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
           this.getChamp.id +
           "_0.jpg)";
-        document.getElementById("app").style.backgroundSize = "contain";
-        document.getElementById("app").style.backgroundColor = "black";
-        document.getElementById("app").style.backgroundRepeat = "no-repeat";
-        document.getElementById("app").style.backgroundAttachment = "fixed";
       } else {
         console.log("landscape");
-        document.getElementById("app").style.backgroundImage =
+        background.style.backgroundImage =
           "url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" +
           this.getChamp.id +
           "_1.jpg)";
-        document.getElementById("app").style.backgroundSize = "contain";
-        document.getElementById("app").style.backgroundColor = "black";
-        document.getElementById("app").style.backgroundRepeat = "no-repeat";
-        document.getElementById("app").style.backgroundPositionX = "center";
-        document.getElementById("app").style.backgroundAttachment = "fixed";
       }
+      background.style.backgroundSize = "contain";
+      background.style.backgroundColor = "black";
+      background.style.backgroundRepeat = "no-repeat";
+      background.style.backgroundPositionX = "center";
+      background.style.backgroundAttachment = "fixed";
     }
   },
   beforeDestroy() {
@@ -62,16 +60,10 @@ p {
   text-align: justify;
 }
 
+.second {
+  background: rgba(255, 255, 255, 0.8);
+  
+}
 @media (orientation: landscape) {
-  /* 
-  document.getElementById("app").style.backgroundImage =
-        "url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" +
-        this.champion.id +
-        "_0.jpg)";
-      document.getElementById("app").style.backgroundSize = "contain";
-      document.getElementById("app").style.backgroundColor = "black";
-      document.getElementById("app").style.backgroundRepeat = "no-repeat";
-      document.getElementById("app").style.backgroundPositionX = "center";
-      document.getElementById("app").style.backgroundAttachment = "fixed";  */
 }
 </style>
